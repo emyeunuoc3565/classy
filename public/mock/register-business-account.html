@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+<!-- Head -->
+<head>
+	<meta charset="utf-8">
+	<title>Register normal account</title>
+	<script src="http://connect.facebook.net/en_US/sdk.js"></script>
+	<!-- Load Style -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/animation/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/all.css">
+</head>
+<!-- /Head -->
+
+<!-- Body -->
+<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=1508464479173801";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="header-line"></div>
+		<a href="#">
+			<div class="wrapper animated flip" style="background: url(./images/logo.bmp)no-repeat center center;">
+			</div>
+		</a>
+	</nav>
+	<div class="container mg-top-40" ng-controller="registerBusinessCtr">
+		<div class="row"  ng-init="showForm='user'" ng-class="{'animated bounceInLeft':(showForm=='user'),'animated bounceInRight':(showForm=='center')}">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-panel panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Đăng ký tài khoản doanh nghiệp</h3>
+						<h4 class="mg-top-10" ng-if="showForm=='user'">Thông tin cá nhân</h4>
+						<h4 class="mg-top-10" ng-if="showForm=='center'">Thông tin Trung tâm</h4>
+					</div>
+					<div class="panel-body">
+						<div ng-show="showForm=='user'">
+							<form name="registerBusinessUserForm" novalidate class="mg-bottom-10" ng-submit="submitUser(registerBusinessUserForm.$valid)">
+								<validate-input class="mg-bottom-10" v-model="user.firstName" v-name="firstName" v-form="registerBusinessUserForm" v-type="text" v-placeholder="Họ" v-tooltip-placement="top" v-required="true" v-min-length="1" v-max-length="50"></validate-input>
+								<validate-input class="mg-bottom-10" v-model="user.lastName" v-name="lastName" v-form="registerBusinessUserForm" v-type="text" v-placeholder="Tên" v-tooltip-placement="top" v-required="true" v-min-length="1" v-max-length="50"></validate-input>
+								<validate-input class="mg-bottom-10" v-model="user.username" v-name="username" v-form="registerBusinessUserForm" v-type="text" v-placeholder="Username" v-tooltip-placement="top" v-required="true" v-min-length="6" v-max-length="18"></validate-input>
+								<validate-input class="mg-bottom-10" v-model="user.email" v-name="email" v-form="registerBusinessUserForm" v-type="email" v-placeholder="Email" v-tooltip-placement="top" v-required="true" v-min-length="6" v-max-length="52"></validate-input>
+								<validate-input class="mg-bottom-10" v-model="user.password" v-name="password" v-form="registerBusinessUserForm" v-type="password" v-placeholder="Mật khẩu" v-tooltip-placement="top" v-required="true" v-min-length="6" v-max-length="12"></validate-input>
+								<validate-input class="mg-bottom-10" v-model="user.passwordConfirm" v-name="passwordConfirm" v-form="registerBusinessUserForm" v-type="password" v-placeholder="Xác nhận mật khẩu" v-tooltip-placement="top" v-required="true" v-min-length="6" v-max-length="12" v-custom-validations="confirmPasswordValidation"></validate-input>
+								<button class="btn btn-yellow w-100-percent bold pd-10">Bước tiếp theo</button>
+							</form>
+							<div>
+								<p class="text-center text font-12">Bạn đã có tài khoản?<a href="#" class="link-login">Đăng nhập</a></p>
+							</div>
+						</div>
+						<div ng-show="showForm=='center'">
+							<form name="registerBusinessCenterForm" novalidate class="mg-bottom-10" ng-submit="submitCenter(registerBusinessCenterForm.$valid)">
+								<validate-input class="mg-bottom-10" v-model="center.name" v-name="name" v-form="registerBusinessCenterForm" v-type="text" v-placeholder="Training center name" v-tooltip-placement="top" v-required="true" v-min-length="3" v-max-length="80"></validate-input>
+
+								<validate-input class="mg-bottom-10" v-model="center.phone" v-name="phone" v-form="registerBusinessCenterForm" v-type="text" v-placeholder="Phone number" v-tooltip-placement="top" v-required="true" v-custom-validations="phoneValidation"></validate-input>
+
+								<validate-input class="mg-bottom-10" v-model="center.website" v-name="website" v-form="registerBusinessCenterForm" v-type="text" v-placeholder="Website" v-tooltip-placement="top" v-min-length="3" v-max-length="100"></validate-input>
+
+								<validate-input class="mg-bottom-10" v-model="center.fanpage" v-name="fanpage" v-form="registerBusinessCenterForm" v-type="text" v-placeholder="Fanpage" v-tooltip-placement="top" v-min-length="1" v-max-length="200" v-custom-validations="checkIsFanpageValidation"></validate-input>
+								
+								<div ng-init="fanpageLoading=true" ng-show="fanpageLoading">
+									<i class="fa fa-2x fa-spinner fa-spin"></i> <span class="animated infinite flash" style="color: #959595">Loading fanpage</span>
+								</div>
+								<div id="fanpagePreview" style="width: 240px">
+									<div class="fb-page" 
+										data-href="{{center.fanpage}}"
+										data-width="240"
+										data-hide-cover="false"
+										data-show-facepile="false"></div>
+								</div>
+								<button type="submit" class="btn btn-yellow w-100-percent bold pd-10">Hoàn thành</button>
+								<a class="btn btn-default w-100-percent bold pd-10 mg-top-10" ng-click="showForm='user';">Trở lại</a>
+							</form>
+							<div>
+								<p class="text-center text font-12">Bạn đã có tài khoản?<a href="#" class="link-login">Đăng nhập</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<!-- /Body -->
+
+<!-- Load Js -->
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="./js/all.js"></script>
+
+</html>

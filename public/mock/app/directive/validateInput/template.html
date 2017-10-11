@@ -1,0 +1,16 @@
+<div class="validate-input">
+	<input type="{{vType}}" class="form-control" placeholder="{{vPlaceholder}}" name="{{vName}}" ng-model="vModel" tooltip-enable="{{!vForm[vName].$valid}}" tooltip-placement="{{vTooltipPlacement}}" uib-tooltip-template="'validate.html'" ng-class="!vForm[vName].$valid&&vForm.$submitted?'err':''" ng-required="{{vRequired}}" ng-minlength="{{vMinLength}}" ng-maxlength="{{vMaxLength}}" ng-min="{{vMin}}" ng-max="{{vMax}}">
+	<!-- VALIDATE TEN KHOA HOC -->
+	<script type="text/ng-template" id="validate.html">
+		<div ng-show="vForm[vName].$error.required">Không được bỏ trống</div>
+		<div ng-show="vForm[vName].$error.email">Phải là email</div>
+		<div ng-show="vForm[vName].$error.minlength">Lớn hơn {{vMinLength}} ký tự</div>
+		<div ng-show="vForm[vName].$error.maxlength">Nhỏ hơn {{vMaxLength}} ký tự</div>
+		<div ng-show="vForm[vName].$error.min">Lớn hơn {{vMin}}</div>
+		<div ng-show="vForm[vName].$error.max">Nhỏ hơn {{vMax}}</div>
+		<div ng-repeat="validation in vCustomValidations">
+			<div ng-show="vForm[vName].$error[validation.name]">{{validation.message}}</div>
+		</div>
+	</script>
+	<!-- END -->
+</div>

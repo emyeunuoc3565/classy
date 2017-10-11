@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+<!-- Head -->
+<head>
+	<meta charset="utf-8">
+	<title>Login normal account</title>
+	<!-- Load Style -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/animation/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/all.css">
+</head>
+<!-- /Head -->
+
+<!-- Body -->
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="header-line"></div>
+		<a href="#">
+			<div class="wrapper animated flip" style="background: url(./images/logo.bmp)no-repeat center center;">
+			</div>
+		</a>
+	</nav>
+	<div class="container mg-top-40" ng-controller="loginNormalCtr">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-panel panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Đăng nhập</h3>
+					</div>
+					<div class="panel-body">
+						<form name="loginNormalForm" novalidate class="mg-bottom-10" ng-submit="submit(loginNormalForm.$valid)">
+							<validate-input class="mg-bottom-10" v-model="user.username" v-name="username" v-form="loginNormalForm" v-type="text" v-placeholder="Username" v-tooltip-placement="top" v-required="true" v-min-length="6" v-max-length="18"></validate-input>
+							<validate-input class="mg-bottom-10" v-model="user.password" v-name="password" v-form="loginNormalForm" v-type="password" v-placeholder="Mật khẩu" v-tooltip-placement="top" v-required="true" v-min-length="6" v-max-length="12"></validate-input>
+							<button class="btn btn-yellow w-100-percent bold pd-10">Đăng nhập</button>
+						</form>
+						<div>
+							<p class="text-center text font-12">Bạn chưa có tài khoản?<a href="#" class="link-login">Đăng ký</a></p>
+						</div>
+						<div>
+							<button class="btn btn-facebook w-100-percent bold pd-10 mg-bottom-10">Đăng nhập với Facebook</button>
+							<button class="btn btn-google w-100-percent bold pd-10 mg-bottom-10">Đăng nhập với Google</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<!-- /Body -->
+
+<!-- Load Js -->
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="./js/all.js"></script>
+
+</html>
