@@ -1,6 +1,5 @@
 <%= render "shared/nav_bar/nav" %>
 <div class="wrapper-content">
-	<%= @branches[0].inspect %>
 	<div class="container" ng-controller="centerDetailCtr">
 		<h1 class="center-title"><%= @center.name %></h1>
 		<div class="row">
@@ -10,7 +9,7 @@
 						<img class="img-responsive" src="/assets/dummysingle.jpg">
 					</div>
 					<div class="col-sm-12 col-md-4">
-						<div><i class="fa fa-building"></i> 12 trung tâm trên toàn quốc</div>
+						<div><i class="fa fa-building"></i> <%= @branches.length %> trung tâm trên toàn quốc</div>
 						<div><i class="fa fa-tag"></i> Tiếng anh cho trẻ em, sinh viên, người đi làm</div>
 						<div><i class="fa fa-money"></i> Từ 3 đến 8 triệu/khóa</div>
 					</div>
@@ -113,68 +112,6 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6 mg-bottom-10">
-							<div class="row">
-								<div class="col-xs-2 col-sm-3 col-md-2">
-									<img src="/assets/user.png" class="img-responsive img-circle">
-								</div>
-								<div class="col-xs-10 col-sm-9 col-md-10">
-									<div><a href="#" class="review-user">Alexander Marcurious</a> <span class="review-date">{{'1288323623006'  | date:"dd' tháng 'MM', 'yyyy"}}</span></div>
-									<div class="review-branch-title">
-										<a href="#"><i class="fa fa-map-marker"></i> Apollo cầu giấy</a>
-									</div>
-									<div class="review-title">
-										Vcl trung tâm apolo
-									</div>
-									<div class="review-rate">
-										<ng-rate-it 
-											ng-model = "'1.6'"
-											min = "'0'"
-											max = "'5'"
-											step = "'0.2'"
-											read-only = "true"
-											pristine = "true"
-											resetable = "false" 
-											star-width="13" star-height="13">
-										</ng-rate-it>
-									</div>
-									<div class="review-content">
-										Mình đang tham gia chương trình học với giáo viên người bản xứ American tại SAS, chưa tới 2 tháng, kỹ năng tiếng Anh của mình cải thiện rõ rệt. Môi trường học rất vui và thú vị. học phí quá ưu đãi. Đội ngũ giáo viên tận tình và giàu kỹ năng. Nhân viên thì khỏi chê, nhiệt tình vô cùng. Sau khi kết thúc chương trình học mình còn được duy trì vốn av với chương trình club hàng tuần, xả xì-chét và phượt với các thầy Tây hàng tháng. Quá đỉnh và tuyệt vời.
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 mg-bottom-10">
-							<div class="row">
-								<div class="col-xs-2 col-sm-3 col-md-2">
-									<img src="/assets/user.png" class="img-responsive img-circle">
-								</div>
-								<div class="col-xs-10 col-sm-9 col-md-10">
-									<div><a href="#" class="review-user">Alexander Marcurious</a> <span class="review-date">{{'1288323623006'  | date:"dd' tháng 'MM', 'yyyy"}}</span></div>
-									<div class="review-branch-title">
-										<a href="#"><i class="fa fa-map-marker"></i> Apollo cầu giấy</a>
-									</div>
-									<div class="review-title">
-										Vcl trung tâm apolo
-									</div>
-									<div class="review-rate">
-										<ng-rate-it 
-											ng-model = "'1.6'"
-											min = "'0'"
-											max = "'5'"
-											step = "'0.2'"
-											read-only = "true"
-											pristine = "true"
-											resetable = "false" 
-											star-width="13" star-height="13">
-										</ng-rate-it>
-									</div>
-									<div class="review-content">
-										Mình đang tham gia chương trình học với giáo viên người bản xứ American tại SAS, chưa tới 2 tháng, kỹ năng tiếng Anh của mình cải thiện rõ rệt. Môi trường học rất vui và thú vị. học phí quá ưu đãi. Đội ngũ giáo viên tận tình và giàu kỹ năng. Nhân viên thì khỏi chê, nhiệt tình vô cùng. Sau khi kết thúc chương trình học mình còn được duy trì vốn av với chương trình club hàng tuần, xả xì-chét và phượt với các thầy Tây hàng tháng. Quá đỉnh và tuyệt vời.
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="content-detail" ng-if="centerShow=='location'">
@@ -182,11 +119,11 @@
 						<div class="col-sm-4 col-sm-offset-5">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Chọn thành phố: Hà Nội <span class="caret"></span>
+								Chọn thành phố: {{location}} <span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Hà Nội</a></li>
-									<li><a href="#">Hồ Chí Minh</a></li>
+								<ul class="dropdown-menu" ng-init="location='ha noi, viet nam'">
+									<li><a ng-click="location='ha noi, viet nam'">Hà Nội</a></li>
+									<li><a ng-click="location='ho chi minh, viet nam'">Hồ Chí Minh</a></li>
 								</ul>
 							</div>
 						</div>
@@ -215,18 +152,43 @@
 							</div>
 						</div>
 						<div class="col-sm-9">
-							<ng-map zoom="12" center="Ha noi, Viet Nam" class="center-google-map">
+							<ng-map zoom="12" center="{{location}}" class="center-google-map">
+							 	<% @branches.each_with_index do |b, index| %>
 							 	<div>
-							 		<% @branches.each_with_index do |branch, index| %>
-									<marker position="<%= branch.coordinates.x %>, <%= branch.coordinates.y %>"  on-click="map.showInfoWindow('info-<%= index %>', 'marker-<%= index %>')" id="marker-<%= index %>"></marker>
+									<marker position="<%= b.coordinates.x %>,<%= b.coordinates.y %>"  on-click="map.showInfoWindow('info-<%= index %>', 'marker-<%= index %>')" id="marker-<%= index %>"></marker>
 									<info-window id="info-<%= index %>">
-										<div>
-											<img src="http://thuevanphong.com.vn/uploads/office_building/62/1373601298-23652.jpg" width="50" height="50">
-											<span>số 1 ngõ 123 xuân thủy cầu giấy hà nội</span>
+										<div class="map-marker-wrap">
+											<div class="pull-left">
+												<img src="<%= b.avatar %>" width="100" height="100">
+												<ng-rate-it 
+													ng-model = "'<%= b.cached_avarage_rating %>'"
+													min = "'0'"
+													max = "'5'"
+													step = "'0.2'"
+													read-only = "true"
+													pristine = "true"
+													resetable = "false" 
+													star-width="16" star-height="16">
+												</ng-rate-it>
+											</div>
+											<div class="pull-right content">
+												<div>
+													<a href="/branches/<%= b.slug %>"><%= b.name %></a>
+												</div>
+												<div>
+													<i class="fa fa-map-marker"></i> <%= b.address %>				
+												</div>
+												<div>
+													<i class="fa fa-phone"></i> <%= b.phone_number %>
+												</div>
+												<div>
+													<i class="fa fa-envelope-o"></i> <%= b.email %>				
+												</div>
+											</div>
 										</div>
 									</info-window>
-									<% end %>
 								</div>
+								<% end %>
 							</ng-map>
 						</div>
 					</div>

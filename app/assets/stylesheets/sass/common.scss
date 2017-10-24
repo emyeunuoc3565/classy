@@ -38,7 +38,7 @@ body{
   margin-top: 10px; 
 }
 .mg-top-40{
-	margin-top: 40px;
+  margin-top: 40px;
 }
 .mg-top-50{
   margin-top: 50px;
@@ -136,5 +136,17 @@ body{
 @media (min-width: 768px){
   .wrapper-content{
     margin-top:65px;
+  }
+}
+
+.map-marker-wrap{
+  width: 250px;
+  .content{
+    width: 150px;
+    color: #8d8d8d;
+  }
+  a{
+    color: #8d8d8d;
+    font-weight: bold;
   }
 }

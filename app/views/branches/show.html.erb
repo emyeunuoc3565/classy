@@ -1,4 +1,256 @@
-<%= @branch.name %><br/>
-<%= link_to @branch.center_name, @branch.center %><br/>
+<%= render "shared/nav_bar/nav" %>
+<div class="wrapper-content">
+	<div class="container" ng-controller="centerDetailCtr">
+		<h1 class="center-title"><%= @branch.name %></h1>
+		<div class="row">
+			<div class="col-sm-8 col-md-9">
+				<div class="row">
+					<div class="col-sm-12 col-md-8">
+						<img class="img-responsive" src="<%= @branch.avatar %>">
+					</div>
+					<div class="col-sm-12 col-md-4">
+						<div>
+							<h5 class="center-of-branch-title">
+								<i class="fa fa-building"></i> 
+								<a href="/centers/<%= @branch.center.slug %>"><%= @branch.center.name %></a>
+							</h5>
+						</div>
+						<div><i class="fa fa-map-marker"></i> <%= @branch.address %></div>
+						<div><i class="fa fa-tag"></i> Tiếng anh cho trẻ em, sinh viên, người đi làm</div>
+						<div><i class="fa fa-money"></i> Từ 3 đến 8 triệu/khóa</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-3">
+				<div class="rate-container">
+					<div class="score" ng-init="rate=<%= @branch.cached_avarage_rating %>;">{{rate | number:2}}</div>
+					<ng-rate-it 
+						ng-model = "rate"
+						min = "'0'"
+						max = "'5'"
+						step = "'0.2'"
+						read-only = "false"
+						pristine = "true"
+						resetable = "false" 
+						star-width="20" star-height="20">
+					</ng-rate-it>
+					<div>Tổng số <i class="fa fa-user-circle-o"></i> 5.105.677</span></div>
+					<div class="mg-top-10">
+						<rate-show v-icon="/assets/star.png" r-title="5" r-background="#4caf50" r-value="'5'" r-value-max="'5'"></rate-show>
+						<rate-show v-icon="/assets/star.png" r-title="4" r-background="#99cc00" r-value="'4'" r-value-max="'5'"></rate-show>
+						<rate-show v-icon="/assets/star.png" r-title="3" r-background="#ffcf02" r-value="'3'" r-value-max="'5'"></rate-show>
+						<rate-show v-icon="/assets/star.png" r-title="2" r-background="#ff9f02" r-value="'2'" r-value-max="'5'"></rate-show>
+						<rate-show v-icon="/assets/star.png" r-title="1" r-background="#ff6f31" r-value="'0'" r-value-max="'5'"></rate-show>
+						<material-review r-title="Viết review ngay">
+							<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 mg-bottom-10">
+									<div class="review-create-title">Đánh giá Apolo - Cầu Giấy</div>
+									<div class="review-create-note">Nếu bạn đã từng học tại apolo - Cầu giấy hãy cho chúng tôi biết cảm nhận của bạn. Cảm ơn bạn đã đến với Classy</div>
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+									First criteria
+									<ng-rate-it 
+										ng-model = "first_criteria"
+										min = "'0'"
+										max = "'5'"
+										step = "'0.2'"
+										read-only = "false"
+										pristine = "true"
+										resetable = "false" 
+										star-width="20" star-height="20">
+									</ng-rate-it>
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+									Second criteria
+									<ng-rate-it 
+										ng-model = "second_criteria"
+										min = "'0'"
+										max = "'5'"
+										step = "'0.2'"
+										read-only = "false"
+										pristine = "true"
+										resetable = "false" 
+										star-width="20" star-height="20">
+									</ng-rate-it>
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+									Third criteria
+									<ng-rate-it 
+										ng-model = "third_criteria"
+										min = "'0'"
+										max = "'5'"
+										step = "'0.2'"
+										read-only = "false"
+										pristine = "true"
+										resetable = "false" 
+										star-width="20" star-height="20">
+									</ng-rate-it>
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+									Four criteria
+									<ng-rate-it 
+										ng-model = "four_criteria"
+										min = "'0'"
+										max = "'5'"
+										step = "'0.2'"
+										read-only = "false"
+										pristine = "true"
+										resetable = "false" 
+										star-width="20" star-height="20">
+									</ng-rate-it>
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+									Fifth criteria
+									<ng-rate-it 
+										ng-model = "fifth_criteria"
+										min = "'0'"
+										max = "'5'"
+										step = "'0.2'"
+										read-only = "false"
+										pristine = "true"
+										resetable = "false" 
+										star-width="20" star-height="20">
+									</ng-rate-it>
+								</div>
+								<div class="col-md-6 col-md-offset-3 mg-bottom-10">
+									<input type="text" class="form-control" placeholder="Tiêu đề">
+								</div>
+								<div class="col-md-6 col-md-offset-3 mg-bottom-10">
+									<textarea type="text" class="form-control" placeholder="Nội dung" rows="5"></textarea>
+								</div>
+								<div class="col-md-6 col-md-offset-3 mg-bottom-10">
+									<input type="text" class="form-control" placeholder="Email xác nhận bạn đã từng học">
+								</div>
+								<div class="col-md-6 col-md-offset-3 mg-bottom-10">
+									<input type="text" class="form-control" placeholder="Số điện thoại xác nhận bạn đã từng học">
+								</div>
+								<div class="col-md-6 col-md-offset-3">
+									<button class="btn btn-success">Đăng <i class="fa fa-paper-plane"></i></button>
+								</div>
+							</div>
+							</div>
+						</material-review>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12" ng-init="centerShow='location'">
+				<ul class="nav nav-tabs navbar-scrollspy background-fff">
+					<li role="presentation" ng-class="{'active':centerShow=='general'}">
+						<a class="btn-scroll" ng-click="centerShow='general'">Thông tin chung</a>
+					</li>
+					<li role="presentation" ng-class="{'active':centerShow=='album'}">
+						<a class="btn-scroll" ng-click="centerShow='album'">Album</a>
+					</li>
+					<li role="presentation" ng-class="{'active':centerShow=='review'}">
+						<a class="btn-scroll" ng-click="centerShow='review'">
+							Đánh giá
+							<span>(258)</span>
+						</a>
+					</li>
+					<li role="presentation" ng-class="{'active':centerShow=='location'}">
+						<a class="btn-scroll" ng-click="centerShow='location'">
+							Bản đồ
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="content-detail" ng-if="centerShow=='general'">
+					<p><%= @branch.description %></p>
+				</div>
+
+				<div class="content-detail" ng-if="centerShow=='album'">
+					<material-album>
+						<img src="http://apollo.edu.vn/sites/default/files/images/apollo-131022-reduce-5.jpg" data-full="http://apollo.edu.vn/sites/default/files/images/apollo-131022-reduce-5.jpg" class="m-p-g__thumbs-img" />
+						<img src="http://pincourse.com/resources/assets/images/uploads/51/1472613897-823.jpeg" data-full="http://pincourse.com/resources/assets/images/uploads/51/1472613897-823.jpeg" class="m-p-g__thumbs-img" />
+						<img src="http://diemdensaigon.com/upload/asset/trung-tam-anh-ngu%CC%83-apollo-nguo%CC%80i-gio%CC%89i-nha%CC%81t-va%CC%83n-co%CC%81-the%CC%89-gio%CC%89i-hon-129-dien-bien-phu%CC%89-20150713145548-1.jpg" data-full="http://diemdensaigon.com/upload/asset/trung-tam-anh-ngu%CC%83-apollo-nguo%CC%80i-gio%CC%89i-nha%CC%81t-va%CC%83n-co%CC%81-the%CC%89-gio%CC%89i-hon-129-dien-bien-phu%CC%89-20150713145548-1.jpg" class="m-p-g__thumbs-img" />
+						<img src="https://kenhtuyensinh.vn/images/2014/09/apollo-khai-truong-co-so--48-1411114048.jpg" data-full="https://kenhtuyensinh.vn/images/2014/09/apollo-khai-truong-co-so--48-1411114048.jpg" class="m-p-g__thumbs-img" />
+						<div style="clear: both;"></div>
+					</material-album>
+				</div>
+
+				<div class="content-detail" ng-if="centerShow=='review'">
+					<div class="row" class="mg-top-10">
+						<div class="col-sm-6 mg-bottom-10">
+							<div class="row">
+								<div class="col-xs-2 col-sm-3 col-md-2">
+									<img src="/assets/user.png" class="img-responsive img-circle">
+								</div>
+								<div class="col-xs-10 col-sm-9 col-md-10">
+									<div><a href="#" class="review-user">Alexander Marcurious</a> <span class="review-date">{{'1288323623006'  | date:"dd' tháng 'MM', 'yyyy"}}</span></div>
+									<div class="review-branch-title">
+										<a href="#"><i class="fa fa-map-marker"></i> Apollo cầu giấy</a>
+									</div>
+									<div class="review-title">
+										Vcl trung tâm apolo
+									</div>
+									<div class="review-rate">
+										<ng-rate-it 
+											ng-model = "'1.6'"
+											min = "'0'"
+											max = "'5'"
+											step = "'0.2'"
+											read-only = "true"
+											pristine = "true"
+											resetable = "false" 
+											star-width="13" star-height="13">
+										</ng-rate-it>
+									</div>
+									<div class="review-content">
+										Mình đang tham gia chương trình học với giáo viên người bản xứ American tại SAS, chưa tới 2 tháng, kỹ năng tiếng Anh của mình cải thiện rõ rệt. Môi trường học rất vui và thú vị. học phí quá ưu đãi. Đội ngũ giáo viên tận tình và giàu kỹ năng. Nhân viên thì khỏi chê, nhiệt tình vô cùng. Sau khi kết thúc chương trình học mình còn được duy trì vốn av với chương trình club hàng tuần, xả xì-chét và phượt với các thầy Tây hàng tháng. Quá đỉnh và tuyệt vời.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-detail" ng-if="centerShow=='location'">
+					<ng-map zoom="12" center="<%= @branch.coordinates.x %>, <%= @branch.coordinates.y %>" class="center-google-map">
+					 	<div>
+							<marker position="<%= @branch.coordinates.x %>, <%= @branch.coordinates.y %>"  on-click="map.showInfoWindow('info-0', 'marker-0')" id="marker-0"></marker>
+							<info-window id="info-0">
+								<div class="map-marker-wrap">
+									<div class="pull-left">
+										<img src="<%= @branch.avatar %>" width="100" height="100">
+										<ng-rate-it 
+											ng-model = "rate"
+											min = "'0'"
+											max = "'5'"
+											step = "'0.2'"
+											read-only = "true"
+											pristine = "true"
+											resetable = "false" 
+											star-width="16" star-height="16">
+										</ng-rate-it>
+									</div>
+									<div class="pull-right content">
+										<div>
+											<a href="/branches/<%= @branch.slug %>"><%= @branch.name %></a>
+										</div>
+										<div>
+											<i class="fa fa-map-marker"></i> <%= @branch.address %>				
+										</div>
+										<div>
+											<i class="fa fa-phone"></i> <%= @branch.phone_number %>
+										</div>
+										<div>
+											<i class="fa fa-envelope-o"></i> <%= @branch.email %>				
+										</div>
+									</div>
+								</div>
+							</info-window>
+						</div>
+					</ng-map>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <%= link_to "Reviews", branch_reviews_path(@branch) %>
-<%= render "shared/google_map/branch_map", branch: @branch %>
