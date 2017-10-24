@@ -1,34 +1,75 @@
-<h2><%= t ".sign_up" %></h2>
+<nav class="navbar navbar-default navbar-fixed-top background-f8f8f8">
+  <div class="header-line"></div>
+  <a href="#">
+    <div class="wrapper animated flip" style="background: url( <%= Settings.logo %>)no-repeat center center;">
+    </div>
+  </a>
+</nav>
+<div class="container mg-top-50">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= t ".sign_up" %></h3>
+          </div>
+          <div class="panel-body">
+            <div id="flash-messages">
+              <%= render "layouts/shared/flash" %>
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="field">
+                <%= f.label :first_name, User.human_attribute_name(:first_name) %><br />
+                <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :first_name, User.human_attribute_name(:first_name) %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+              <div class="field">
+                <%= f.label :last_name, User.human_attribute_name(:last_name) %><br />
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :email, User.human_attribute_name(:email) %><br />
+                <%= f.email_field :email, class: "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password, User.human_attribute_name(:password) %><br />
+                <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation, User.human_attribute_name(:password_confirmation) %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+              </div>
+
+              <div class="actions mg-top-10">
+                <%= f.submit t(".sign_up"), class: "btn btn-yellow w-100-percent bold pd-10" %>
+              </div>
+            <% end %>
+            <div>
+              <%= render "devise/shared/links" %>
+            </div>
+            <div>
+              <button class="btn btn-facebook w-100-percent bold pd-10 mg-bottom-10">Đăng nhập với Facebook</button>
+              <button class="btn btn-google w-100-percent bold pd-10 mg-bottom-10">Đăng nhập với Google</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name, User.human_attribute_name(:last_name) %><br />
-    <%= f.text_field :last_name %>
-  </div>
 
-  <div class="field">
-    <%= f.label :email, User.human_attribute_name(:email) %><br />
-    <%= f.email_field :email %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password, User.human_attribute_name(:password) %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, User.human_attribute_name(:password_confirmation) %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit t(".sign_up") %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+
+
+
+
+
+
