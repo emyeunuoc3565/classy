@@ -1,0 +1,118 @@
+<nav class="navbar classy-nav navbar-default background-fff">
+	<div class="container-fluid">
+		<div class="nav navbar-nav inline-block mg-0 wrap-nav-brand">
+			<li><a href="#" class="fix"><img class="img-brand" src="./images/logo.bmp"></a></li>
+		</div>
+		<div class="nav navbar-nav inline-block mg-0 wrap-login-btn-group">
+			<li>
+				<div class="fix">
+					<button class="btn-default h-31 line-height-16 btn-login-group" uib-popover-template="'loginPopo.html'" popover-placement="auto" popover-trigger="'outsideClick'" popover-append-to-body="true">Đăng nhập</button>
+					<script type="text/ng-template" id="loginPopo.html">
+						<div class="wrapper-btn-login">
+							<div>
+								<a href="#" class="btn btn-login btn-yellow">Đăng nhập</a>	
+								<a href="#" class="btn btn-login btn-yellow">Tạo tài khoản</a>	
+								<a href="#" class="btn btn-login btn-facebook">Đăng nhập bằng Facebook</a>	
+								<a href="#" class="btn btn-login btn-google">Đăng nhập bằng Google</a>
+							</div>
+						</div>
+					</script>
+				</div>
+			</li>
+		</div>
+		<div class="float-left">
+			<div class="nav navbar-nav inline-block mg-0 wrap-category-group">
+				<li>
+					<div class="fix">
+						<div class="root-cate" uib-popover-template="'cateCatePopo.html'" popover-placement="auto" popover-trigger="'outsideClick'" popover-append-to-body="true">
+							<div class="rn-nav-name">
+								<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 85px;">Thể loại</span>
+								<span class="fa fa-sort-desc"></span>
+							</div>
+							<script type="text/ng-template" id="cateCatePopo.html">
+								<div class="box-cate">
+									<div class="flp-title">
+										<i class="fa fa-bars"></i> Select category
+									</div>
+									<div class="flp-countries overflow-visible">
+										<div class="relative parentSubCate" ng-repeat="i in [0,1,2,3,4]">
+											<a href="#" class="countries"  uib-popover-template="'subCatePopo.html'" popover-placement="auto right-top" popover-trigger="'none'" ng-mouseover="$parent.cateSubOpen=i" popover-is-open="$parent.cateSubOpen == i">
+												<label>Tiếng Nhật {{i}}</label>
+												<label style="float: right"><i class="fa fa-angle-right"></i></label>
+											</a>
+										</div>
+									</div>
+								</div>
+							</script>
+
+							<script type="text/ng-template" id="subCatePopo.html">
+								<div class="subCate scroll-red">
+									<a href="#" class="countries" ng-repeat="j in [0,1,2,3,4,5,6,7,8,9,10,11,12]">
+											<label>N{{j}}</label>
+											<span>49.401</span>
+									</a>
+								</div>
+							</script>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="nav navbar-nav inline-block mg-0 wrap-city-group">
+				<li>
+					<div class="fix" href="#">
+						<div class="root-cate" uib-popover-template="'cateCityPopo.html'" popover-placement="auto" popover-trigger="'outsideClick'" popover-append-to-body="true" >
+							<div class="rn-nav-name">
+								<span style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 85px;">TP. HCM</span>
+								<span class="fa fa-sort-desc"></span>
+							</div>
+							<script type="text/ng-template" id="cateCityPopo.html">
+								<div class="box-cate ">
+									<div class="flp-title">
+										<i class="fa fa-globe"></i> Select city
+									</div>
+									<div class="flp-countries scroll-red">
+										<div class="choice">
+											<label>Tìm tỉnh thành</label>
+										</div>
+										<a href="#" class="countries" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10]">
+											<label>Hà Nội</label>
+											<span>49.401</span>
+										</a>
+									</div>
+									<div class="fl-summary ng-scope">
+										<a href="#">
+										<i class="fa fa-map-marker"></i>
+										<span>228.9K</span>
+										</a>
+										<a href="#">
+										<i class="fa fa-comment"></i>
+										<span>924.9K</span>
+										</a>
+										<a href="#">
+										<i class="fa fa-camera"></i>
+										<span>6.4M</span>
+										</a>
+									</div>
+								</div>
+							</script>
+						</div>
+					</div>
+				</li>
+			</div>
+		</div>
+		<div class="nav navbar-nav inline-block mg-0 wrap-search-group">
+			<li>
+				<div class="fix">
+					<div class="form-inline">
+						<div class="form-group">
+							<div class="input-group">
+								<input id="nav-search-input" type="text" class="form-control h-31" >
+								<div class="input-group-addon search-btn-nav"><i class="fa fa-search"></i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</div>
+	</div>
+</nav>

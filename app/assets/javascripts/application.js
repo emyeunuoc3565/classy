@@ -11,9 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require jquery
-//= require jquery_ujs
-//= require js/bootstrap.min
 //= require vote
+//= require jquery/dist/jquery.min
+//= require bootstrap/dist/js/bootstrap.min
+//= require angular/angular
+//= require angular-bootstrap/ui-bootstrap.min
+//= require angular-bootstrap/ui-bootstrap-tpls
+//= require angular-sanitize/angular-sanitize.min
+//= require angular-rateit/dist/ng-rateit.min
+//= require ngmap/build/scripts/ng-map.min
+//= require_tree ./app
 //

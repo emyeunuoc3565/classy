@@ -13,5 +13,6 @@ module Classy
     config.eager_load_paths += Dir[Rails.root.join("app", "forms", "concerns")]
     # config.i18n.default_locale = :vi
     config.time_zone = "Hanoi"
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
   end
 end

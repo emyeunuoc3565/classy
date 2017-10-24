@@ -14,4 +14,9 @@
  *= require css/bootstrap.min
  *= require map
  *= require vote
+ *= require animation/animate.min
+ *= require font-awesome/css/font-awesome.min
+ *= require material-design-boostrap/material
+ *= require angular-rateit/dist/ng-rateit
+ *= require_tree ./sass
  */

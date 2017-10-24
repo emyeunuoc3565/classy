@@ -1,0 +1,31 @@
+<div class="rateShow">
+	<div style="width: 15%;float: left;">
+		<span class="bold">{{rTitle}}</span class="bold">
+		<img src="{{vIcon}}" width="19" height="19" class="animated rotateIn">
+	</div>
+	<div style="width: 73%;float: left;" class="progress progress-striped active animated flipInX">
+		<div class="progress-bar progress-bar-custom" style="width: {{rValue/rValueMax*100 + 1}}%;background-color: {{rBackground}};">
+			<span class="text-in-progress-bar bold">{{rValue}} <i class="fa fa-user-circle"></i></span>
+		</div>
+	</div>
+	<div style="clear: both;"></div>
+	
+	<style type="text/css">
+		.rateShow .progress-bar-custom:last-child.progress-bar:before , .rateShow .progress{
+			background: none;
+		}
+		.rateShow .progress {
+			height: 20px;
+			margin-bottom: 13px;
+		}
+		.rateShow .progress-bar-custom{
+			text-align: left;
+		}
+		.rateShow .text-in-progress-bar{
+			padding-left: 10px;
+			color: #666666;
+			display: block;
+			min-width: 45px;
+		}
+	</style>
+</div>
