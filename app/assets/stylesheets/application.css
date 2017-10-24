@@ -14,4 +14,7 @@
  *= require css/bootstrap.min
  *= require map
  *= require vote
+ *= require font-awesome/css/font-awesome.min
+ *= require_tree ./utils
+ *= require_tree ./sass
  */

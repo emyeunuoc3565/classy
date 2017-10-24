@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;EACxB,KAAK,EAAE,IAAI;;AAEZ,oBAAoB;EACnB,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;;AAElB,mBAAmB;EAClB,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,GAAG;EAChB,SAAS,EAAE,IAAI",
+"sources": ["../../sass/branch-detail/branch-detail.scss"],
+"names": [],
+"file": "branch-detail.css"
+}

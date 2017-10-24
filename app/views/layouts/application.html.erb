@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Classy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
@@ -11,8 +13,8 @@
       &language=#{Settings.google_map.language}&region=#{Settings.google_map.region}" %>
   </head>
 
-  <body>
-    <div class="container">
+  <body ng-app="myApp">
+    <div>
       <div id="flash-messages">
         <%= render "layouts/shared/flash" %>
       </div>

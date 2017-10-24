@@ -1,0 +1,152 @@
+body{
+  background: #F4F3F2;
+}
+.absolute{
+  position: absolute;
+}
+.inline-block{
+  display: inline-block;
+}
+.w-100-percent{
+  width: 100%;
+}
+.bold{
+  font-weight: bold;
+}
+.pd-10{
+  padding: 10px;
+}
+.font-12{
+  font-size:12px;
+}
+.text {
+    color: #959595;
+}
+.background-f8f8f8{
+  background: #f8f8f8
+}
+.mg-auto{
+  margin: auto;
+}
+.mg-0{
+  margin: 0;
+}
+.mg-bottom-10{
+  margin-bottom: 10px;
+}
+.mg-top-10{
+  margin-top: 10px; 
+}
+.mg-top-40{
+	margin-top: 40px;
+}
+.mg-top-50{
+  margin-top: 50px;
+}
+.background-fff{
+  background: #fff;
+}
+.h-31{
+  height: 31px;
+}
+.line-height-16{
+  line-height: 16px;
+}
+.min-w-230{
+  min-width: 230px;
+}
+.relative{
+  position: relative;
+}
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+/*customizing tooltip color*/
+.err{
+    border:2px solid #F54337 !important;
+}
+/*right tooltip*/
+.validate-input .tooltip.right > .tooltip-arrow {
+  border-right-color: #F54337;
+}
+
+/*bottom tooltip*/
+.validate-input .tooltip.bottom > .tooltip-arrow {
+  border-bottom-color: #F54337;
+}
+
+/*top tooltip*/
+.validate-input .tooltip.top > .tooltip-arrow {
+  border-top-color: #F54337;
+}
+
+/*left tooltip*/
+.validate-input .tooltip.left > .tooltip-arrow {
+  border-left-color: #F54337;
+}
+
+/*tooltip inner*/
+.validate-input .tooltip > .tooltip-inner {
+  background-color: #F54337;
+  /*text-shadow: 0 1px 1px #000;*/
+  font-weight: bold;
+  border-radius: 0px
+}
+
+.infinity{
+  
+}
+
+
+.scroll-red::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.scroll-red::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.scroll-red::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #F54337; 
+  background-image: -webkit-linear-gradient(45deg,
+                                            rgba(255, 255, 255, .2) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,
+                        transparent 75%,
+                        transparent)
+}
+
+/*END*/
+
+.wrapper-content{
+  margin-top:90px;
+}
+@media (min-width: 768px){
+  .wrapper-content{
+    margin-top:65px;
+  }
+}
+
+.map-marker-wrap{
+  width: 250px;
+  .content{
+    width: 150px;
+    color: #8d8d8d;
+  }
+  a{
+    color: #8d8d8d;
+    font-weight: bold;
+  }
+}

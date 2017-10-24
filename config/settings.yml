@@ -1,3 +1,4 @@
+logo: /assets/logo.bmp
 flash:
   notice: "alert-info"
   error: "alert-error"

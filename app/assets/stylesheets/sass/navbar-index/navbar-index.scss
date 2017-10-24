@@ -1,0 +1,276 @@
+/*NHAY GIAO DIEN DROPDOWN CHON TINH THANH PHO*/
+.classy-nav{
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.root-cate {
+  border: 1px solid #eee;
+  float: left;
+  font-weight: 400;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+  font-size: 14px;
+  border-radius: 2px;
+  margin: 0 5px 0 0;
+  text-align: center;
+  height: 31px;
+  line-height: 31px;
+}
+.root-cate>.rn-nav-name {
+  padding: 0 15px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
+}
+.root-cate>.rn-nav-name span.fa {
+  padding: 5px 0 0 5px;
+}
+.root-cate>.rn-nav-name span {
+  float: left
+}
+
+
+.box-cate{
+  box-shadow: 1px 2px 6px rgba(0,0,0,.5);
+  background: #fff;
+  border-radius: 2px;
+  /*width: 280px;*/
+}
+.box-cate > .flp-title{
+  font-size: 14px;
+  padding: 3px 10px 3px 10px;
+  background: #eee;
+  color: #000;
+  text-align: left;
+}
+
+.box-cate > .flp-countries{
+  overflow: auto;
+  max-height: 295px;
+}
+
+.box-cate .choice {
+    font-size: 12px;
+    color: #999;
+    display: block;
+    padding: 0 10px;
+    background: #f8f8f8;
+    text-align: left;
+}
+.box-cate .countries:hover{
+  color: #c00;
+}
+.box-cate .countries {
+  border-bottom: 1px solid #F7F7F7;
+  display: block;
+  padding: 0 10px;
+  color: #111;
+  text-align: left;
+}
+.box-cate .countries>label{
+  cursor: pointer;
+  padding: 5px 0px;
+  margin: 0;
+  font-weight: 100;
+}
+.box-cate .countries>span {
+    display: inline-block;
+    float: right;
+    color: #999;
+    font-size: 12px;
+}
+.box-cate .fl-summary {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background: #eee;
+    border-radius: 0 0 2px 2px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+.box-cate .fl-summary a {
+    color: #555;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 15px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.box-cate .fl-summary a:hover{
+  color: #c00;
+}
+.box-cate .popover{
+  border-radius: 0px;
+  box-shadow: 1px 2px 6px rgba(0,0,0,.5);
+  border: none !important;
+}
+body>.popover .popover-content {
+    padding: 0;
+}
+body>.popover {
+    border: none;
+}
+.subCate{
+  min-width: 150px;
+  max-height: 295px;
+  overflow:auto;
+}
+.parentSubCate:hover div.subCate{
+  display: block !important;
+}
+.overflow-visible{
+  overflow:visible !important;
+}
+/*END*/
+/*Style for search btn nav bar */
+.search-btn-nav{
+  color: black;
+  cursor: pointer;
+}
+/*END*/
+
+.navbar-default .navbar-nav .fix {
+    color: #777;
+}
+@media (min-width: 768px){
+  .navbar-nav .fix {
+      padding-top: 15px;
+      padding-bottom: 15px;
+  }
+}
+.navbar-nav .fix {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+.nav .fix {
+    position: relative;
+    display: block;
+    padding: 10px 0px;
+}
+@media (max-width: 768px){
+  .container-fluid {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+/*FIX NAV BAR DROPDOWN*/
+@media (max-width: 767px){
+  .navbar-nav .open .dropdown-menu {
+      position: absolute;
+      float: none;
+      border: 1px solid rgba(0,0,0,.15);
+      box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+}
+/*END*/
+/*ALL BTN FOR LOGIN BTN*/
+.wrapper-btn-login{
+  box-shadow: 1px 2px 6px rgba(0,0,0,.5);
+  padding: 5px;
+}
+.btn-login-group{
+  border: 1px solid #eee;
+  color: #777
+}
+.btn-login{
+  display: block !important;
+  border-radius: 4px;
+  margin: 10px 0;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  box-shadow: -1px 2px 4px 0 rgba(218,218,218,.5);
+  line-height: 28px;
+  height: 40px;
+}
+.btn-yellow{
+  color: #4a4a4a;
+  text-shadow: 0 0 1px #ababab;
+  background: #fdd835;
+}
+.btn-facebook{
+  color: #fff  !important;
+  text-shadow: 0 0 1px #000;
+  background: #2151B2;
+}
+.btn-google{
+  color: #fff !important;
+  text-shadow: 0 0 1px #000;
+  background: #D41701;
+}
+/*END*/
+/*SEARCH NAV INPUT*/
+@media (min-width: 768px){
+  #nav-search-input{
+    width: 305px
+  }
+}
+@media (min-width: 850px){
+  #nav-search-input{
+    width: 360px
+  }
+}
+@media (min-width: 992px){
+  #nav-search-input{
+    width: 500px
+  }
+}
+/*END*/
+
+/*SETTING ORDER NAV IN MOBILE*/
+
+.wrap-nav-brand{
+  display: none;
+}
+.wrap-login-btn-group{
+    float: right;
+}
+@media (max-width: 768px){
+  .fix{
+    padding:5px 0 !important;
+  }
+  .wrap-search-group .fix{
+    padding: 0px !important;
+  }
+  .classy-nav{
+    height: 80px;
+  }
+}
+@media (min-width: 414px){
+  .img-brand{
+    width: 60px;
+  }
+  .wrap-nav-brand{
+    display: block;
+    float: left;
+    margin-right: 10px;
+  }
+}
+@media (min-width: 768px){
+  .img-brand{
+    width: 100px;
+  }
+  .wrap-city-group{
+    float: left;
+  }
+  .wrap-category-group{
+    float: right;
+  }
+}
+
+/*SEARCH BOX RESULT*/
+.wrap-search-box{
+  box-shadow: 1px 2px 6px rgba(0,0,0,.5);
+  background: #fff;
+  border-radius: 2px;
+  width: 400px;
+}
