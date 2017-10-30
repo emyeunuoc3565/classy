@@ -5,6 +5,17 @@ en:
       update:
         success: Verify review success
         failed: Fail to verify review
+    branches:
+      create:
+        success: Create branch success
+        failed: Fail to create branch
+      update:
+        success: Update branch success
+        failed: Fail to update branch
+    centers:
+      update:
+        success: Update center success
+        failed: Fail to update center
   branch:
     reviews:
       create:

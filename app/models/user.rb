@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :center_requests
   has_many :reviews
   has_many :comments
+  has_many :user_comments, class_name: UserComment.name
+  has_many :center_comments, class_name: CenterComment.name
   has_many :votes
 
   PERSONAL_INFORMATION_PARAMS = [:first_name, :last_name, :phone_number]
@@ -42,8 +44,16 @@ class User < ApplicationRecord
     end
   end
 
+  def manage_branch? branch
+    branches_under_management.try :include?, branch
+  end
+
   def to_param
     username
+  end
+
+  def is_manager?
+    center_manager? || branch_manager?
   end
 
   class << self

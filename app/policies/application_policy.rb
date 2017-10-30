@@ -14,4 +14,8 @@ class ApplicationPolicy
   def record_owner?
     user && user.id == record.user.id
   end
+
+  def manager?
+    user.try :is_manager?
+  end
 end

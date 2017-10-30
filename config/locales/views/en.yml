@@ -1,4 +1,11 @@
 en:
+  dictionary:
+    select_city: &select_city Select city
+    select_district: &select_district Select district
+    preview: &preview Preview
+    edit: &edit Edit
+    finish: &finish Finish
+    delete: &delete Delete
   home_pages:
     index:
       log_out: Log out
@@ -33,21 +40,46 @@ en:
       review:
         edit: Edit
         delete: Delete
-        show_comments: Show %{comments_count} comment
+        show_comments: &show_comments
+          zero: No comments
+          one: Show 1 comment
+          other: Show %{count} comments
         confirm_delete: "Are you sure to delete this review?"
+        new_comment: New comment
     google_map:
       branch_info:
         email: Email
         phone_number: Phone number
         rating: Rating
-  center_management:
+    comments:
+      new_comment:
+        post: Post
+        add_comment_placeholder: Add a public comment...
+      comment:
+        confirm_delete: Are you sure to delete this comment?
+        delete: *delete
+  management:
     branches:
       index:
         index: Index
+        create_new_branch: Create new branch
       branch_filter:
-        select_city: Select city
+        select_city: *select_city
         filter: Filter
         select_status: Select status
+      branch:
+        edit: *edit
+      new:
+        create_new_branch: Create new branch
+      edit:
+        edit_branch: Edit branch %{name}
+      preview:
+        edit: *edit
+        finish: *finish
+      form:
+        select_city: *select_city
+        select_district: *select_district
+        preview: *preview
     review_verifications:
       index:
         index: Index
@@ -60,6 +92,13 @@ en:
       review_verification:
         accept: Accept
         reject: Reject
+    centers:
+      new:
+        preview: *preview
+        select_training_type: Select training type
+      preview:
+        edit: *edit
+        finish: *finish
   training_centers:
     show:
       branch_list: "Branch list"
@@ -67,6 +106,9 @@ en:
     index:
       select_city: "Select city"
       filter: "Filter"
+    show:
+      edit: *edit
+      reviews: Reviews
   branch:
     reviews:
       index:
@@ -84,3 +126,11 @@ en:
       profile: Profile
       edit_personal_information: Edit personal information
       edit_account_information: Edit account information
+  review:
+    comments:
+      create:
+        show_comments: *show_comments
+        failed: Fail to create comment
+  comments:
+    destroy:
+      show_comments: *show_comments

@@ -23,18 +23,20 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:edit, :update, :destroy] do
     scope module: :review do
-      resources :comments, only: :index
+      resources :comments, only: [:index, :new, :create]
       resource :votes, only: [:create, :destroy]
     end
   end
 
-  namespace :center_management do
-    resources :branches, only: :index
+  resources :comments, only: [:edit, :update, :destroy]
+
+  namespace :management do
+    resources :branches, except: :destroy
     resources :review_verifications, only: [:index, :update]
+    resource :center, only: [:edit, :update]
   end
 
-  namespace :branches_management do
-    resources :branches, only: :index
-    resources :review_verifications, only: [:index, :update]
+  namespace :supports do
+    resources :districts, only: :index
   end
 end

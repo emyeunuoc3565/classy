@@ -31,6 +31,10 @@ vote:
 review_verification:
   per_page: 20
 validations:
+  comment:
+    content:
+      max_length: 255
+      min_length: 20
   review:
     title:
       max_length: 255
@@ -39,6 +43,26 @@ validations:
       max_length: 10000
       min_length: 20
   review_verification:
+    email:
+      max_length: 255
+  branch:
+    avatar:
+      max_size: 3.megabytes
+    name:
+      max_length: 50
+    address:
+      max_length: 100
+    description:
+      max_length: 1000
+  center:
+    logo:
+      max_size: 3.megabytes
+    avatar:
+      max_size: 3.megabytes
+    name:
+      max_length: 50
+    description:
+      max_length: 1000
     email:
       max_length: 255
 google_map:
@@ -56,3 +80,9 @@ google_map:
       width: 100%
   branch:
     zoom: 14
+business_avatar:
+  versions:
+    medium: [400, 200]
+avatar:
+  versions:
+    medium: [200, 200]
