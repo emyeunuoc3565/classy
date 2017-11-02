@@ -1,0 +1,22 @@
+.center-header {
+  background: #fff;
+  .img-cover {
+    width: 100%;
+  }
+}
+.center-name {
+  font-size: 23px;
+  margin: 0px;
+}
+@media (min-width: 768px) {
+  .center-header {
+    background: #fff;
+    padding: 0px;
+    .img-cover {
+      width: 100%;
+    }
+  }
+  .center-name {
+    font-size: 45px;
+  }
+}
